@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="moment.min.js"></script>
+    <script>
+        function timeDifference(work_start_time, work_finish_time) {
+            // input 2 integer timestamp (Ex. Work start time, finish time).
+            // get the exact time difference.
+
+            //console.log(work_start_time);
+            work_start_time = moment(work_start_time).format("DD/MM/YYYY h:mm:ss");
+            //console.log(work_start_time);
+
+            //console.log(work_finish_time);
+            work_finish_time = moment(work_finish_time).format("DD/MM/YYYY h:mm:ss");
+            //console.log(work_finish_time);
+
+            var t_diff_ms = moment(work_finish_time, "DD/MM/YYYY HH:mm:ss").diff(moment(work_start_time, "DD/MM/YYYY HH:mm:ss"));
+            //console.log(t_diff_ms);
+
+            // var d = moment.duration(t_diff_ms);
+            // console.log(d);
+
+            var formatted_time_difference = moment.utc(t_diff_ms).format('HH:mm:ss')
+            //console.log(formatted_time_difference);
+
+            return formatted_time_difference;
+        }
+
+        // 1668837459966
+        // Nov 19 2022
+
+        // 1668922558071
+        // Nov 20 2022
+
+
+        timeDifference(1668837459966, 1668922558071);
+        console.log(timeDifference(1668837459966, 1668922558071));
+
+    </script>
+
+
+</body>
+
+</html>
